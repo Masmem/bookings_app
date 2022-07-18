@@ -32,6 +32,10 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Gem para realizar testes unitários
 gem 'rspec-rails', groups: [:development, :test]
 
+# Sistema de autenticação
+gem 'devise'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
