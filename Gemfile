@@ -32,7 +32,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Gem para realizar testes unitários
 gem 'rspec-rails', groups: [:development, :test]
 
-# Sistema de autenticação
+# Sistema de autenticação [https://github.com/heartcombo/devise]
 gem 'devise'
 
 
@@ -74,6 +74,8 @@ group :development do
 end
 
 group :test do
+  # Gerar informações aleatórias para testes [https://github.com/faker-ruby/faker]
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
