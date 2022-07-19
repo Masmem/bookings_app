@@ -73,7 +73,7 @@ group :development do
   # gem "spring"
 end
 
-group :test do
+group :test, :development do
   # Gerar informações aleatórias para testes [https://github.com/faker-ruby/faker]
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
