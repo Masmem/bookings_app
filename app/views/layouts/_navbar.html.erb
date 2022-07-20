@@ -8,7 +8,7 @@
         <%= current_user.email%>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li><%= link_to "Sair", destroy_user_session_path, class:"dropdown-item", data:{ turbo_method: :delete} %></li>
+        <li><%= link_to "Sair", destroy_user_session_path, class:"dropdown-item", data:{ turbo_method: :delete}, id: "logout_link" %></li>
         </ul>
     </li>
     </ul>    
