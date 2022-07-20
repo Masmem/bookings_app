@@ -15,14 +15,16 @@ RSpec.describe BookingsHelper, type: :feature do
 
   context "Usuário autenticado" do
     before(:all) do
-      loged_used = User.create(email: Faker::Internet.email,  )
+      @loged_used = User.create(email: Faker::Internet.email, name: Faker::name, password: "teste" )
+      sign_in @loged_used
     end
     
     describe "realizar logout no sistema" do
       it "ser redirecionado para tela de login" do
-        
-      end
-      
+        visit root_path
+        find(:css, "#logout_link").click
+        expect(page).to have_selector("div", class: "login-container")
+      end     
       
     end
   end
