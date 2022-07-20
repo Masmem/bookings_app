@@ -1,0 +1,22 @@
+.login-container{
+    margin-top: 15%;
+    max-width: 20% !important;
+    padding: 10px;
+
+    border-radius: 5%;
+    background-color: rgba(147, 91, 173, 0.829);
+    color: white;
+
+}
+
+a{
+    color: white !important;
+
+    &:active{
+        color: white !important;
+    }
+    &:hover{
+        color: rgb(182, 177, 177) !important;
+    }
+}
+

@@ -35,6 +35,9 @@ gem 'rspec-rails', groups: [:development, :test]
 # Sistema de autenticação [https://github.com/heartcombo/devise]
 gem 'devise'
 
+# Bootstrap gem [https://github.com/twbs/bootstrap-rubygem]
+gem 'bootstrap', '~> 5.2.0'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
