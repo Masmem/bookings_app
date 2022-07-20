@@ -13,10 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap";
 
 body{
     background-image: url("meeting_room.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
+}
+
+.btn-success{
+    margin-top: 5px;
+    background-color: rgb(216, 149, 255);
+    border-color:rgb(216, 149, 255) ;
+
+    &:hover{
+        background-color: rgb(170, 45, 243);
+        border-color:rgb(170, 45, 243) ;
+    }
+}
+
+.custom-navbar{
+    background-color: rgb(142, 0, 224);
+    color: white;
+}
+
+.dropdown-item{
+    color: rgb(100, 40, 134)!important;
+    &:hover{
+        color: rgb(157, 81, 204)!important;
+    }
 }

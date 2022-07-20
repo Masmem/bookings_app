@@ -1,12 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe BookingsHelper, type: :feature do
-    describe "Usuário não autenticado" do
-        it "deve ser redirecionado para pagina de login" do
+    describe "Usuário não autenticado deve ser redirecionado para pagina de login" do
+        it "ao acessar o root" do
           visit root_path
-    
-        #   expect(page).should have_selecto("div#login_container")   
-          should have_selector('div#login_container')  
+          expect(page).to have_selector("div", class: "login-container")  
         end
     end
 end

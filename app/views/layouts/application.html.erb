@@ -10,7 +10,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>    
-    <%= yield %>
+  <body>
+    <% unless user_signed_in? %>
+    <div id="login_container" class="login-container container-sm"> 
+      <%= yield %>
+    </div>
+    <% else %>
+      <%= render partial: "layouts/navbar" %>
+
+    <%end%>
   </body>
 </html>
