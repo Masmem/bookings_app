@@ -1,14 +1,16 @@
-<div class="week-day <%= day.day == @today.day ? "today" : "" %>">
+<% past_day = day < @today %>
+<div class="week-day <%= day.day == @today.day ? "today" : past_day ? "past" : "" %>">
     <H3><%= t("date.day_names")[day.wday] %></H3>
     <div class="week-hour-container">
     
     <% (6..23).each do |hour|%>
-        <div class="week-hour">
+        <% past_hour = @today > day.midnight + hour.hours%>
+        <div class="week-hour <%= past_hour ? "past":"" %>">
             <div class="hour">
                 <%= "%02d:00" % [hour] %>
             </div>
             <div classe="actions">
-                <%= link_to "reservar", "#" %>
+                <%= link_to "reservar", "#"  unless past_hour%>
             </div>
         </div>
 
