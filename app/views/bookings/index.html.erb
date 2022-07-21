@@ -1,3 +1,7 @@
-<div id="welcome-title" class="welcome_title">
+<div id="welcome-title" class="booking-card">
     <h3>Bem-vindo, <%= current_user.name %>!</h3>
+</div>
+
+<div class="booking-card week_days_container">
+    <%= render 'bookings/bookings_week' %>
 </div>

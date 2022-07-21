@@ -36,10 +36,9 @@ RSpec.describe BookingsHelper, type: :feature do
         visit root_path
         expect(page).to have_selector("div", id: "welcome-title")
       end
-      
-
-
     end
+
+    
   end
 end
   
