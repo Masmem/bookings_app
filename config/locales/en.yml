@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  date:
+    day_names: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+    day_names_short: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"]

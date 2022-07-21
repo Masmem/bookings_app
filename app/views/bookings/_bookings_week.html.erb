@@ -1,1 +1,8 @@
-<%= @today %>
+<div class="week-header">
+    SOU O HEADER
+</div>
+<div class="week-days-container">
+    <% @days.each do |day|%>
+        <%= render 'bookings/bookings_days', day: day %>
+    <% end %>
+</div>

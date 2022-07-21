@@ -9,6 +9,57 @@
     box-shadow: 0px 5px 10px #2f2e2f;
 }
 
-.week_days_container{
-    
+.week-days-container{
+    display: flex;
 }
+
+.week-day{
+
+    width: 19%;
+    background-color: $color_01;
+    color: $color_03;
+    border-radius: 5px;
+    margin: 0.5rem ;
+    padding: 0.2rem;
+    text-align: center;
+
+    &:first-child{
+        margin-left: 0px;
+    }
+    &:last-child{
+        margin-right: 0px;
+    }
+
+    &.today{
+        background-color: $color_02;
+        color: $color_01;
+    }
+
+    &.past{
+        background-color: gray;
+        color: $color_01;
+    }
+
+}
+
+.week-hour-container{
+
+}
+
+.week-hour{
+    background-color: $color_03;
+    color: $color_01;
+    border-radius: 5px;
+    margin-bottom: 0.3rem;
+    display: flex;
+    & .hour{
+        width: 30%;
+    }
+    & .actions{
+        width: 70%;
+
+    }
+}
+
+
+

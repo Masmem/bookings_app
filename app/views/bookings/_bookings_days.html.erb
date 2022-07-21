@@ -1,0 +1,18 @@
+<div class="week-day <%= day.day == @today.day ? "today" : "" %>">
+    <H3><%= t("date.day_names")[day.wday] %></H3>
+    <div class="week-hour-container">
+    
+    <% (6..23).each do |hour|%>
+        <div class="week-hour">
+            <div class="hour">
+                <%= "%02d:00" % [hour] %>
+            </div>
+            <div classe="actions">
+                <%= link_to "reservar", "#" %>
+            </div>
+        </div>
+
+    <% end %>
+
+    </div>
+</div>
