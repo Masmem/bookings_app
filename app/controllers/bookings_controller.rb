@@ -12,6 +12,12 @@ class BookingsController < ApplicationController
         end
         
     end
+   
+    def new
+        p params
+        
+    end
+    
 
 
     private
