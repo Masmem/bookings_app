@@ -14,9 +14,14 @@ class BookingsController < ApplicationController
     end
    
     def new
-        p params
+        @booking = current_user.bookings.new(reservation_date: params[:reservation_date])
+    end
+
+
+    def create
         
     end
+    
     
 
 
@@ -28,6 +33,12 @@ class BookingsController < ApplicationController
         @days = (1..5).to_a
         @days = @days.map {|day| today = (@today + weekend_aux.days ); today  - (today.wday - day).days }
     end
+
+    def booking_params
+        params.require(:booking).permit(:material, :description, :reservation_date)
+        
+    end
+    
     
 
 end
