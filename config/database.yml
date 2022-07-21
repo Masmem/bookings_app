@@ -87,6 +87,7 @@ test:
 #
 production:
   <<: *default
+  host: <%= ENV.fetch("DATABASE_URL") %>
   database: bookings_app_production
   username: <%= ENV.fetch("DB_USERNAME") %>
   password: <%= ENV.fetch("DB_PASSWORD") %>
