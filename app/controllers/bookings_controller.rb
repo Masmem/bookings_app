@@ -3,6 +3,14 @@ class BookingsController < ApplicationController
 
     def index
         @bookings = Booking.all
+        respond_to do |format|
+            format.html
+            format.js{
+                puts "Estou no js"
+                render js: "bookings/index.js.erb"
+            }
+        end
+        
     end
 
 

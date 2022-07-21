@@ -1,6 +1,6 @@
 <% past_day = day < @today %>
 <div class="week-day <%= day.day == @today.day ? "today" : past_day ? "past" : "" %>">
-    <H3><%= t("date.day_names")[day.wday] %></H3>
+    <H3><%= t("date.day_names")[day.wday] %>(<%= day.day%>)</H3>
     <div class="week-hour-container">
     
     <% (6..23).each do |hour|%>
@@ -9,8 +9,8 @@
             <div class="hour">
                 <%= "%02d:00" % [hour] %>
             </div>
-            <div classe="actions">
-                <%= link_to "reservar", "#"  unless past_hour%>
+            <div classe="actions" data-turbolinks="false">
+                <%= link_to "reservar", root_path, turbo: false, remote: true  unless past_hour%>
             </div>
         </div>
 
