@@ -1,0 +1,10 @@
+@import "../../system_variables.scss";
+
+.welcome_title{
+    margin: 2rem 0px;
+    color: $color_01;
+    padding: 10px;
+    background-color: $color_04;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px #2f2e2f;
+}

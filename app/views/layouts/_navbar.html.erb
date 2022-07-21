@@ -1,13 +1,13 @@
 
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Bookings App</a>
     <ul class="navbar-nav">
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="email_dropdown_link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <%= current_user.email%>
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <ul class="dropdown-menu" aria-labelledby="email_dropdown_link">
         <li><%= link_to "Sair", destroy_user_session_path, class:"dropdown-item", data:{ turbo_method: :delete}, id: "logout_link" %></li>
         </ul>
     </li>

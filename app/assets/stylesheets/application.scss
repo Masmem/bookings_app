@@ -14,7 +14,10 @@
  *= require_self
  */
 
+
 @import "bootstrap";
+@import "system_variables.scss";
+
 
 body{
     background-image: url("meeting_room.jpg");
@@ -24,23 +27,24 @@ body{
 
 .btn-success{
     margin-top: 5px;
-    background-color: rgb(216, 149, 255);
-    border-color:rgb(216, 149, 255) ;
+    background-color: $color_01;
+    border-color:$color_01 ;
 
     &:hover{
-        background-color: rgb(170, 45, 243);
-        border-color:rgb(170, 45, 243) ;
+        background-color: $color_03;
+        border-color: $color_03 ;
     }
 }
 
 .custom-navbar{
-    background-color: rgb(142, 0, 224);
-    color: white;
+    background-color: $color_03;
+    color: $color_01;
 }
 
 .dropdown-item{
-    color: rgb(100, 40, 134)!important;
+    color: $color_05!important;
     &:hover{
-        color: rgb(157, 81, 204)!important;
+        color: $color_03!important;
     }
 }
+
