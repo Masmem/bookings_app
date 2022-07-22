@@ -20,11 +20,14 @@ class BookingsController < ApplicationController
 
 
     def create
+        p params
         @booking = current_user.bookings.new(booking_params)
 
         respond_to do |format|
             if @booking.save!
-                format.turbo_stream { redirect_to bookings_path}
+                @reservation_date = booking_params[:reservation_date].to_datetime
+                @past_hour = @reservation_date > Time.now
+                format.turbo_stream
             end
         end
     end
@@ -35,7 +38,7 @@ class BookingsController < ApplicationController
        
        respond_to do |format|
             if @booking.update!(booking_params)
-                format.turbo_stream { redirect_to bookings_path}
+                format.turbo_stream { render turbo_stream :index}
             end
         end
        

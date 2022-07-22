@@ -1,22 +1,23 @@
+@import "system_variables.scss";
 .login-container{
     margin-top: 15%;
     max-width: 20% !important;
     padding: 10px;
 
     border-radius: 5%;
-    background-color: rgba(147, 91, 173, 0.829);
-    color: white;
+    background-color: $color_04;
+    color: $color_01;
 
 }
 
 a{
-    color: white !important;
+    color: $color_01 !important;
 
     &:active{
-        color: white !important;
+        color: $color_01 !important;
     }
     &:hover{
-        color: rgb(182, 177, 177) !important;
+        color: $color_03!important;
     }
 }
 

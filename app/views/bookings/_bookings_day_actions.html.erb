@@ -1,0 +1,25 @@
+
+
+<%= turbo_frame_tag "booking_#{reservation_date.strftime("%d_%m_%Y_%H_%M")}" do %>
+    <% reservation_date%>
+    <% if booking %>
+        <span><%= booking.user.name %></span>
+        <% if current_user.booking_ids.include?(booking.id) and not past_hour %>
+            <%= link_to edit_booking_path(booking) , data:{turbo_frame: "remote_modal"} do %>
+                <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            <%= link_to  booking_path(booking),
+                        data:{  turbo_frame: "remote_modal", 
+                                turbo_method: :delete,
+                                turbo_confirm: "Deseja remover a reserva de #{reservation_date.strftime("%d/%m")}?"} do %>
+                <i class="fa-solid fa-trash"></i>
+            <% end %>
+        <%else%>
+            <%= link_to booking_path(booking) , data:{turbo_frame: "remote_modal"} do %>
+                <i class="fa-solid fa-eye"></i>
+            <% end %>
+        <% end %>
+    <% else %>
+        <%= link_to "reservar", new_booking_path(reservation_date: reservation_date) , data:{turbo_frame: "remote_modal"} unless past_hour%>
+    <%end%>
+<%end%>

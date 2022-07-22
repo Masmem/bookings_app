@@ -1,0 +1,4 @@
+<%= turbo_stream.update "booking_#{@reservation_date.strftime("%d_%m_%Y_%H_%M")}", partial: "bookings/bookings_day_actions", 
+                                    locals: {booking: @booking, past_hour: @past_hour, reservation_date: @reservation_date} %>
+
+<%= turbo_stream.remove "remote_modal" %>
