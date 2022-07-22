@@ -67,8 +67,7 @@ class BookingsController < ApplicationController
         @week_reference = params.fetch(:week_reference, 0).to_i
         weekend_aux = @today.wday == 0 ? 1 : @today.wday == 6 ? 2 : 0 #variável auxiliar para ajustar a data quando sistema acessado em finais de semana
         @days = (1..5).to_a
-        p " TESTEE #{(7 * @week_reference)}"
-        @days = @days.map {|day| today = (@today + weekend_aux.days ); p (today.wday - day).days - (7 * @week_reference); today  - ((today.wday - day).days - (7 * @week_reference).days) }
+        @days = @days.map {|day| today = (@today + weekend_aux.days ); today  - ((today.wday - day).days - (7 * @week_reference).days) }
     end
 
     def booking_params
