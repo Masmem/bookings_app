@@ -1,5 +1,9 @@
-<%= render "new_modal", title: "Editar Reserva" do %>
+<%= turbo_frame_tag "remote_modal" do %>
 
-  <%= render "form" %>
+  <%= render "new_modal", title: "Editar Reserva" do %>
+
+    <%= render "form" %>
+
+  <% end %>
 
 <% end %>
