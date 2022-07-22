@@ -2,15 +2,7 @@ class BookingsController < ApplicationController
     before_action :get_week_days, only: [:index]
 
     def index
-        @bookings = Booking.all
-        respond_to do |format|
-            format.html
-            format.js{
-                puts "Estou no js"
-                render js: "bookings/index.js.erb"
-            }
-        end
-        
+        @bookings = Booking.all      
     end
    
     def new
@@ -19,7 +11,13 @@ class BookingsController < ApplicationController
 
 
     def create
-        
+        @booking = current_user.bookings.new(booking_params)
+
+        respond_to do |format|
+            if @booking.save!
+                format.turbo_stream
+            end
+        end
     end
     
     
@@ -35,8 +33,7 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-        params.require(:booking).permit(:material, :description, :reservation_date)
-        
+        params.require(:booking).permit(:material, :description, :reservation_date)        
     end
     
     

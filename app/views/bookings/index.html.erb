@@ -3,5 +3,7 @@
 </div>
 
 <div class="booking-card week_days_container">
-    <%= render 'bookings/bookings_week' %>
+    <turbo-frame id="bookings">
+        <%= render 'bookings/bookings_week' %>
+    </turbo-frame>
 </div>

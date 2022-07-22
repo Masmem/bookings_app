@@ -1,4 +1,6 @@
-<%= form_with(model: @booking) do |_form| %>
+<%= form_with(model: @booking, local: false) do |_form| %>
+
+    <%= _form.hidden_field :reservation_date %>
     <div class="field">
         <%= _form.label :description, "Descrição da Reunião:" %><br />
         <%= _form.text_area :description, autofocus: true, class:"form-control" %>
