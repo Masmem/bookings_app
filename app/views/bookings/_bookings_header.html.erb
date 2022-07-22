@@ -1,0 +1,11 @@
+<div class="previous-week">
+    <%= link_to bookings_path(week_reference: (-1 + (@week_reference ? @week_reference : 0)) ), data:{turbo_frame: "bookings"} do %>
+        <i class="fa-solid fa-angle-left"></i>
+    <% end %>    
+</div>
+<div>Semanas</div>
+<div class="next-week">
+    <%= link_to bookings_path(week_reference: (1 + (@week_reference ? @week_reference : 0))), data:{turbo_frame: "bookings"} do %>
+        <i class="fa-solid fa-angle-right"></i>
+    <% end %>
+</div>

@@ -11,6 +11,17 @@
 
 .week-days-container {
   display: flex;
+
+}
+
+.week-header{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  & .previous-week, & .next-week{
+    margin: 0px 10rem;
+  }
 }
 
 .week-day {
