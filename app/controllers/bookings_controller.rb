@@ -4,6 +4,12 @@ class BookingsController < ApplicationController
     def index
         @bookings = Booking.all      
     end
+
+    def edit
+        p params
+        @booking = current_user.bookings.find(params[:id])
+    end
+    
    
     def new
         @booking = current_user.bookings.new(reservation_date: params[:reservation_date])
@@ -19,6 +25,19 @@ class BookingsController < ApplicationController
             end
         end
     end
+
+
+    def update
+       @booking = current_user.bookings.find(params[:id])
+       
+       respond_to do |format|
+            if @booking.update!(booking_params)
+                format.turbo_stream { redirect_to bookings_path}
+            end
+        end
+       
+    end
+    
     
     
 
