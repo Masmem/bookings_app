@@ -1,4 +1,24 @@
 <%= render "new_modal", title: "Informações da Reserva" do %>
     
+    <div class="booking-info">
+        <div class="label">Reserva feita por:</div>
+        <div class="info"><%= @booking.user.name%></div>
+    </div>
+
+        
+    <div class="booking-info">
+        <div class="label">Data da Reserva:</div>
+        <div class="info"><%= @booking.reservation_date.in_time_zone("America/Sao_Paulo").strftime("%d/%m/%Y - %H:%M")%></div>
+    </div>
+
+    <div class="booking-info">
+        <div class="label">Descrição da Reserva:</div>
+        <div class="info"><%= @booking.description%></div>
+    </div>
+
+    <div class="booking-info">
+        <div class="label">Equipamentos Utilizados:</div>
+        <div class="info"><%= @booking.material%></div>
+    </div>
 
 <% end %>

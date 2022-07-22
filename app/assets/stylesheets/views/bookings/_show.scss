@@ -1,0 +1,14 @@
+.booking-info {
+  display: flex;
+  margin-bottom: 10px;
+
+  & .label {
+    width: 30%;
+    font-weight: bold;
+  }
+
+  & .info {
+    margin-left: 3px;
+    width: 70%;
+  }
+}
