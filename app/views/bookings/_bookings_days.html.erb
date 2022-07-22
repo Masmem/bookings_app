@@ -21,10 +21,15 @@
                     <span><%= booking.user.name %></span>
                     <% if current_user.booking_ids.include?(booking.id) and not past_hour %>
                         <%= link_to new_booking_path(reservation_date: reservation_date) , data:{turbo_frame: "remote_modal"} do %>
-                            <i class="bi bi-pencil-square"></i>
+                           <i class="fa-solid fa-pen-to-square"></i>
+                        <% end %>
+                        <%= link_to new_booking_path(reservation_date: reservation_date) , data:{turbo_frame: "remote_modal"} do %>
+                           <i class="fa-solid fa-trash"></i>
                         <% end %>
                     <%else%>
-                        visualizar
+                        <%= link_to new_booking_path(reservation_date: reservation_date) , data:{turbo_frame: "remote_modal"} do %>
+                           <i class="fa-solid fa-eye"></i>
+                        <% end %>
                     <% end %>
                 <% else %>
                     <%= link_to "reservar", new_booking_path(reservation_date: reservation_date) , data:{turbo_frame: "remote_modal"} unless past_hour%>

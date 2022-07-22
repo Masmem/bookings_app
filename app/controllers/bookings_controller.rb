@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
 
         respond_to do |format|
             if @booking.save!
-                format.turbo_stream
+                format.turbo_stream { redirect_to bookings_path}
             end
         end
     end
