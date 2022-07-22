@@ -23,7 +23,10 @@
                         <%= link_to edit_booking_path(booking) , data:{turbo_frame: "remote_modal"} do %>
                            <i class="fa-solid fa-pen-to-square"></i>
                         <% end %>
-                        <%= link_to new_booking_path(reservation_date: reservation_date) , data:{turbo_frame: "remote_modal"} do %>
+                        <%= link_to  booking_path(booking),
+                                    data:{  turbo_frame: "remote_modal", 
+                                            turbo_method: :delete,
+                                            turbo_confirm: "Deseja remover a reserva de #{reservation_date.strftime("%d/%m")}?"} do %>
                            <i class="fa-solid fa-trash"></i>
                         <% end %>
                     <%else%>

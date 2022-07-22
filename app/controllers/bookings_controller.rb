@@ -9,7 +9,10 @@ class BookingsController < ApplicationController
         p params
         @booking = current_user.bookings.find(params[:id])
     end
-    
+
+    def show
+        @booking = Booking.find(params[:id])   
+    end
    
     def new
         @booking = current_user.bookings.new(reservation_date: params[:reservation_date])
@@ -37,6 +40,17 @@ class BookingsController < ApplicationController
         end
        
     end
+
+
+    def destroy
+        @booking = current_user.bookings.find(params[:id])
+       
+        if @booking.delete
+            redirect_to bookings_url, status: :see_other
+        end
+    
+    end
+    
     
     
     
