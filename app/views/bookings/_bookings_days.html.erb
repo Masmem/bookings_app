@@ -17,6 +17,7 @@
             </div>
             <div classe="actions">
                 <turbo-frame id="booking_<%= reservation_date.strftime("%d_%m_%Y_%H_%M") %>">
+                    <% p "BOOKING DAYS #{reservation_date} "%>
                     <%= render "bookings/bookings_day_actions", booking: booking, past_hour: past_hour, reservation_date: reservation_date%>
                 </turbo-frame>
             </div>

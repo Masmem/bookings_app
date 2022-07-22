@@ -1,2 +1,3 @@
 <%= turbo_stream.replace "booking_#{@reservation_date.strftime("%d_%m_%Y_%H_%M")}", partial: "bookings/bookings_day_actions", 
                                     locals: {booking: @booking, past_hour: @past_hour, reservation_date: @reservation_date, current_user: current_user} %>
+
