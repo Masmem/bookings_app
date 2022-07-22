@@ -1,7 +1,7 @@
 <% past_day = day < @today %>
-<% today = day.day == @today.day  %>
-<div class="week-day <%= today ? "today" : past_day ? "past" : "" %>">
-    <H3><%= t("date.day_names")[day.wday] %>(<%=  today ? "Hoje" : day.day%>)</H3>
+<% is_today = day.day == @today.day  %>
+<div class="week-day <%= is_today ? "today" : past_day ? "past" : "" %>">
+    <H3><%= t("date.day_names")[day.wday] %>(<%=  is_today ? "Hoje" : day.day%>)</H3>
     <div class="week-hour-container">
     
     <% (6..23).each do |hour|%>
@@ -9,34 +9,17 @@
         reservation_date = day.midnight + hour.hours
         past_hour = @today > reservation_date 
         booking = @bookings.find_by(reservation_date: reservation_date)
-        p booking
         %>
         
         <div class="week-hour <%= past_hour ? "past":"" %>">
             <div class="hour">
                 <%= "%02d:00" % [hour] %>
             </div>
-            <div classe="actions" data-turbolinks="false">
-                <% if booking %>
-                    <span><%= booking.user.name %></span>
-                    <% if current_user.booking_ids.include?(booking.id) and not past_hour %>
-                        <%= link_to edit_booking_path(booking) , data:{turbo_frame: "remote_modal"} do %>
-                           <i class="fa-solid fa-pen-to-square"></i>
-                        <% end %>
-                        <%= link_to  booking_path(booking),
-                                    data:{  turbo_frame: "remote_modal", 
-                                            turbo_method: :delete,
-                                            turbo_confirm: "Deseja remover a reserva de #{reservation_date.strftime("%d/%m")}?"} do %>
-                           <i class="fa-solid fa-trash"></i>
-                        <% end %>
-                    <%else%>
-                        <%= link_to booking_path(booking) , data:{turbo_frame: "remote_modal"} do %>
-                           <i class="fa-solid fa-eye"></i>
-                        <% end %>
-                    <% end %>
-                <% else %>
-                    <%= link_to "reservar", new_booking_path(reservation_date: reservation_date) , data:{turbo_frame: "remote_modal"} unless past_hour%>
-                <%end%>
+            <div classe="actions">
+                <turbo-frame id="booking_<%= reservation_date.strftime("%d_%m_%Y_%H_%M") %>">
+                    <% p "BOOKING DAYS #{reservation_date} "%>
+                    <%= render "bookings/bookings_day_actions", booking: booking, past_hour: past_hour, reservation_date: reservation_date%>
+                </turbo-frame>
             </div>
         </div>
 

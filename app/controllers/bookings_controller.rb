@@ -6,12 +6,11 @@ class BookingsController < ApplicationController
     end
 
     def edit
-        p params
         @booking = current_user.bookings.find(params[:id])
     end
 
     def show
-        @booking = Booking.find(params[:id])   
+        @booking = Booking.find(params[:id])
     end
    
     def new
@@ -24,7 +23,9 @@ class BookingsController < ApplicationController
 
         respond_to do |format|
             if @booking.save!
-                format.turbo_stream { redirect_to bookings_path}
+                @reservation_date = booking_params[:reservation_date].to_datetime
+                @past_hour = @reservation_date < Time.now
+                format.turbo_stream
             end
         end
     end
@@ -35,26 +36,24 @@ class BookingsController < ApplicationController
        
        respond_to do |format|
             if @booking.update!(booking_params)
-                format.turbo_stream { redirect_to bookings_path}
+                @reservation_date = booking_params[:reservation_date].to_datetime
+                @past_hour = @reservation_date < Time.now
+                format.turbo_stream
             end
-        end
-       
+        end       
     end
-
 
     def destroy
         @booking = current_user.bookings.find(params[:id])
-       
-        if @booking.delete
-            redirect_to bookings_url, status: :see_other
-        end
-    
+        @reservation_date = @booking.reservation_date   
+        respond_to do |format|
+            if @booking.delete
+                @booking = nil
+                @past_hour = @reservation_date < Time.now
+                format.turbo_stream
+            end
+        end    
     end
-    
-    
-    
-    
-
 
     private
 
