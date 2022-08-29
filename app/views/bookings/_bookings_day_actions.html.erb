@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "booking_#{reservation_date.strftime("%d_%m_%Y_%H_%M")}" do %>
+<%= turbo_frame_tag "booking_#{reservation_date.strftime("%d_%m_%Y_%H_%M")}", style:{"justify-content": "center; width: 100%;"} do %>
     <% reservation_date%>
     <% if booking %>
         <span><%= booking.user.name %></span>
@@ -18,6 +18,6 @@
             <% end %>
         <% end %>
     <% else %>
-        <%= link_to "reservar", new_booking_path(reservation_date: reservation_date) , data:{turbo_frame: "remote_modal"} unless past_hour%>
+        <%= link_to "+", new_booking_path(reservation_date: reservation_date) , class:"add-btn" ,data:{turbo_frame: "remote_modal"} unless past_hour%>
     <%end%>
 <%end%>

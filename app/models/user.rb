@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
-  has_many :bookings
+  has_many :bookings, inverse_of: 'user'
 end
