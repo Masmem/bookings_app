@@ -8,7 +8,7 @@
         <% 
         reservation_date = day.midnight + hour.hours
         past_hour = @today > reservation_date 
-        booking = @bookings.find_by(reservation_date: reservation_date)
+        booking = @bookings.to_a.filter { |bk| bk.reservation_date == reservation_date}.first
         %>
         
         <div class="week-hour <%= past_hour ? "past":"" %>">
